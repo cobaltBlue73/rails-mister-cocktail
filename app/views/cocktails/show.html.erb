@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= @cocktail.name %></h3>
+
+<table>
+  <thead>
+  <tr>
+    <td>Dose</td>
+    <td>Ingredient</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @cocktail.doses.each do |dose| %>
+      <tr>
+        <td><%= dose.description %></td>
+        <td><%= dose.ingredient.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= render 'doses/form', cocktail: @dose %>
+<%= link_to 'Back', cocktails_path %>
