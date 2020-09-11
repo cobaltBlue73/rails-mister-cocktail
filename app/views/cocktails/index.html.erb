@@ -6,7 +6,12 @@
   <tbody>
     <% @cocktails.each do |cocktail| %>
       <tr>
-        <td><%= link_to cocktail.name, cocktail %></td>
+        <td>
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+          <%= link_to cocktail.name, cocktail %>
+        </td>
       </tr>
     <% end %>
   </tbody>
