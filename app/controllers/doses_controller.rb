@@ -13,10 +13,8 @@ class DosesController < ApplicationController
     respond_to do |format|
       if @dose.save
         format.html { redirect_to @dose.cocktail, notice: 'Dose was successfully created.' }
-        format.json { render :show, status: :created, location: @dose.cocktail }
       else
         format.html { render :new }
-        format.json { render json: @dose.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -26,8 +24,7 @@ class DosesController < ApplicationController
   def destroy
     @dose.destroy
     respond_to do |format|
-      format.html { redirect_to doses_url, notice: 'Dose was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to @dose.cocktail, notice: 'Dose was successfully destroyed.' }
     end
   end
 

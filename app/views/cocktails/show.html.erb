@@ -14,9 +14,10 @@
       <tr>
         <td><%= dose.description %></td>
         <td><%= dose.ingredient.name %></td>
+        <td><%= link_to 'Delete', dose, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= render 'doses/form', cocktail: @dose %>
+<%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
 <%= link_to 'Back', cocktails_path %>
